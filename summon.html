@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <link rel="icon" href="k_icon.png">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>k_</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <p>Discord tag</p>
+        <input type="text" maxlength="30" onkeypress="return /[0-9]/i.test(event.key)"  placeholder="Discord ID" id="id" autocapitalize="off">
+        <div id="btn">Submit</div>
+        <p id="instructions">After this head to <b>#summoning</b> on the k_ discord server and follow the instructions given on the last page :)<br><br>
+        <b>Note: </b>If you haven't joined the discord server yet, you'll have to submit this form again once you join<br><br>If you don't know how to get your user ID click <a id="tis" href="https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-">this</a></p>
+    </div>
+
+    <script>
+        let url = 'https://discord.com/api/webhooks/922873385061613568/2ytsqMPYoAu-6ZNxz4ADPjRrLqu5XAREYbdO4k6yi3-El0OWbQBXXiAGXRHdUm2VpFV7';
+
+        document.getElementById('btn').addEventListener('click', function () {
+            var tag = document.getElementById('id').value
+            $.post(url, { content: tag} )
+        })
+    </script>
+</body>
+
+</html>
